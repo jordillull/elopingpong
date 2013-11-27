@@ -1,0 +1,16 @@
+
+This is a really small ELO rating system for our table tennis matches in the
+office.
+
+It takes the basics from the ELO system but the number of points gained or lost
+for each match is not only determined by the outcome of the game. We take into 
+account the result of the game to determine the new rating. 
+
+For example if player A and player B have both an ELO rating of 1500 and player
+A wins wins 21 - 0 he will win 16 points, however winning 21 - 19 will only give
+him 5.33 points.
+
+This makes the game more fun giving bad players a motivation to play against the
+strongest ones, even if they lost they might win points against high ranked 
+players if they perform well.
+
