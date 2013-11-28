@@ -6,7 +6,7 @@ def list_players():
     con = sqlite3.connect('pingpong.db') 
     cur = con.cursor() 
 
-    for row in cur.execute("SELECT * FROM player"):
+    for row in cur.execute("SELECT * FROM player ORDER BY rating DESC"):
         print row
 
     cur.close()
