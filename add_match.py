@@ -6,7 +6,7 @@ import sqlite3
 
 import sys
 
-import elopingpong
+import elo
 
 import datetime
 
@@ -78,7 +78,7 @@ def add_match(player_a, score_a, player_b, score_b):
 
     
 
-    new_rating_a, new_rating_b = elopingpong.compute_new_ratings(score_a, rating_a, score_b, rating_b)
+    new_rating_a, new_rating_b = elo.compute_new_ratings(score_a, rating_a, score_b, rating_b)
 
 
 
