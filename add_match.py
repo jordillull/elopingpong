@@ -23,7 +23,7 @@ def log_match_info(player_a, score_a, player_b, score_b, rating_a, rating_b, new
     print
     print "{0} {1} {2:.2f} points. His new rating is {3:.2f}".format(player_b, 'won' if new_rating_b > rating_b else 'lost', abs(new_rating_b-rating_b), new_rating_b) 
 
-def add_match(player_a, score_a, player_b, score_b):
+def add_match(player_a, score_a, player_b, score_b, verbose):
     con = sqlite3.connect('pingpong.db') 
     cur = con.cursor() 
 
@@ -61,7 +61,8 @@ def add_match(player_a, score_a, player_b, score_b):
     cur.execute(query.format(new_rating_a, player_a))
     cur.execute(query.format(new_rating_b, player_b))
 
-    log_match_info(player_a, score_a, player_b, score_b, rating_a, rating_b, new_rating_a, new_rating_b)
+    if verbose:
+        log_match_info(player_a, score_a, player_b, score_b, rating_a, rating_b, new_rating_a, new_rating_b)
 
     con.commit() 
     cur.close()
@@ -72,4 +73,4 @@ if __name__ == "__main__":
         print "Incorrect number of parameters."
         print "  Usage: ./add_match player_a score_a player_b score_b"
     else:
-        add_match(sys.argv[1], int(sys.argv[2]), sys.argv[3], int(sys.argv[4]))
+        add_match(sys.argv[1], int(sys.argv[2]), sys.argv[3], int(sys.argv[4]), true)

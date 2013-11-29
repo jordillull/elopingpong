@@ -5,7 +5,7 @@ import sys
 
 DEFAULT_RATING = 1500
 
-def new_player(short_name, name):
+def add_player(short_name, name):
     con = sqlite3.connect('pingpong.db') 
     cur = con.cursor()
 
@@ -21,4 +21,4 @@ if __name__ == "__main__":
         print "Incorrect number of parameters."
         print "  Usage: ./add_player short_name long_name"
     else:
-        new_player(sys.argv[1], sys.argv[2])
+        add_player(sys.argv[1], sys.argv[2])
